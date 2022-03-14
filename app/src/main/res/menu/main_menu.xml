@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/cep_navigation"
+        android:icon="@drawable/cep_on_black_24dp"
+        android:title="CEP" />
+    <item
+        android:id="@+id/ddd_navigation"
+        android:icon="@drawable/ddd_black_24dp"
+        android:title="DDD" />
+    <item
+        android:id="@+id/feriados_navigation"
+        android:icon="@drawable/feriado_black_24dp"
+        android:title="FERIADOS" />
+    <item
+        android:id="@+id/fipe_navigation"
+        android:icon="@drawable/fipe_car_black_24dp"
+        android:title="FIPE" />
+</menu>
