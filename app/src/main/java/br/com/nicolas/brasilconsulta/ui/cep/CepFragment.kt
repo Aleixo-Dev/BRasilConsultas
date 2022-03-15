@@ -32,19 +32,41 @@ class CepFragment : Fragment() {
         observerChangeInViewModel()
     }
 
-    private fun observerChangeInViewModel(){
+    private fun observerChangeInViewModel() {
         viewModel.uiState.observe(viewLifecycleOwner) {
             when (it) {
                 is UiState.Loading -> {
                 }
                 is UiState.Success -> {
-
+                    it.data.let { cep ->
+                        setupTextViews(
+                            cep.cep,
+                            cep.state,
+                            cep.city,
+                            cep.neighborhood,
+                            cep.street
+                        )
+                    }
                 }
                 is UiState.Error -> {
                     Toast.makeText(requireContext(), it.error, Toast.LENGTH_SHORT).show()
                 }
             }
         }
+    }
+
+    private fun setupTextViews(
+        cep: String,
+        state: String,
+        city: String,
+        neighborhood: String,
+        street: String,
+    ) = binding.apply {
+        tvCep.text = cep
+        tvState.text = state
+        tvCity.text = city
+        tvNeighborhood.text = neighborhood
+        tvStreet.text = street
     }
 
     private fun setupButton() = binding.apply {
@@ -55,7 +77,9 @@ class CepFragment : Fragment() {
     }
 
     private fun CepFragmentBinding.setupInput(): String {
-        return inputCep.text.toString()
+        val result = inputCep.text.toString()
+        inputCep.text?.clear()
+        return result
     }
 
     private fun fetchCep(cep: String) {

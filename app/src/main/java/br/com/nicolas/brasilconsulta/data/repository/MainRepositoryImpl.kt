@@ -23,4 +23,16 @@ class MainRepositoryImpl(
             emit(Resource.Error(exception.toString()))
         }
     }
+
+    override suspend fun fetchDirect(direct: String): Flow<Resource<List<String>>> = flow {
+        try {
+            emit(Resource.Loading)
+            val response = remote.getDirect(direct)
+            emit(Resource.Success(response.cities))
+        } catch (exception: HttpException) {
+            emit(Resource.Error(exception.message() ?: "no internet connection."))
+        } catch (exception: IOException) {
+            emit(Resource.Error(exception.toString()))
+        }
+    }
 }

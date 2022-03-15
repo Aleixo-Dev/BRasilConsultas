@@ -7,6 +7,7 @@ import br.com.nicolas.brasilconsulta.data.datasource.remote.RemoteDataSourceImpl
 import br.com.nicolas.brasilconsulta.data.repository.MainRepository
 import br.com.nicolas.brasilconsulta.data.repository.MainRepositoryImpl
 import br.com.nicolas.brasilconsulta.ui.cep.CepViewModel
+import br.com.nicolas.brasilconsulta.ui.ddd.DirectViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -33,6 +34,12 @@ val instance = module {
 
     viewModel {
         CepViewModel(
+            repository = get()
+        )
+    }
+
+    viewModel {
+        DirectViewModel(
             repository = get()
         )
     }

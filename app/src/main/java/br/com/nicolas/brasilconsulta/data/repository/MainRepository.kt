@@ -8,4 +8,6 @@ interface MainRepository {
 
     suspend fun fetchCep(cep: String): Flow<Resource<CepResponse>>
 
+    suspend fun fetchDirect(direct: String): Flow<Resource<List<String>>>
+
 }
