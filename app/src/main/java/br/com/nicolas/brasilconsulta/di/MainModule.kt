@@ -8,6 +8,7 @@ import br.com.nicolas.brasilconsulta.data.repository.MainRepository
 import br.com.nicolas.brasilconsulta.data.repository.MainRepositoryImpl
 import br.com.nicolas.brasilconsulta.ui.cep.CepViewModel
 import br.com.nicolas.brasilconsulta.ui.ddd.DirectViewModel
+import br.com.nicolas.brasilconsulta.ui.feriados.FeriadosViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -32,17 +33,11 @@ val instance = module {
         MainRepositoryImpl(remote = get())
     }
 
-    viewModel {
-        CepViewModel(
-            repository = get()
-        )
-    }
+    viewModel { CepViewModel(get()) }
 
-    viewModel {
-        DirectViewModel(
-            repository = get()
-        )
-    }
+    viewModel { DirectViewModel(get()) }
+
+    viewModel { FeriadosViewModel(get()) }
 }
 
 private fun provideRetrofit(): Retrofit {
