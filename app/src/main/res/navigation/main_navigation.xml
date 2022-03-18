@@ -14,4 +14,9 @@
         android:name="br.com.nicolas.brasilconsulta.ui.ddd.DirectFragment"
         android:label="direct_fragment"
         tools:layout="@layout/direct_fragment" />
+    <fragment
+        android:id="@+id/feriados_navigation"
+        android:name="br.com.nicolas.brasilconsulta.ui.feriados.FeriadosFragment"
+        android:label="feriados_fragment"
+        tools:layout="@layout/feriados_fragment" />
 </navigation>
