@@ -7,4 +7,6 @@ class RemoteDataSourceImpl(
     override suspend fun getCep(cep: String) = apiService.getCep(cep)
 
     override suspend fun getDirect(directCode: String) = apiService.getDirect(directCode)
+
+    override suspend fun getHolidays(year: String) = apiService.getHolidays(year)
 }
