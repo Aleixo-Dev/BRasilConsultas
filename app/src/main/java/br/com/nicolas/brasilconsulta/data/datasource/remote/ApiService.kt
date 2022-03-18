@@ -2,6 +2,7 @@ package br.com.nicolas.brasilconsulta.data.datasource.remote
 
 import br.com.nicolas.brasilconsulta.data.datasource.response.CepResponse
 import br.com.nicolas.brasilconsulta.data.datasource.response.DirectResponse
+import br.com.nicolas.brasilconsulta.data.datasource.response.FeriadosResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -17,4 +18,9 @@ interface ApiService {
         @Path("ddd") directCode: String
     ): DirectResponse
 
+
+    @GET("feriados/v1/{ano}")
+    suspend fun getHolidays(
+        @Path("ano") year : String
+    ) : FeriadosResponse
 }
